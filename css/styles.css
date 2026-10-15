@@ -1,0 +1,249 @@
+/* ============================================================
+   Aroma Café – Hoja de Estilos Principal
+   ============================================================ */
+
+/* ------ Variables ------ */
+:root {
+  --color-bg:        #1a1208;
+  --color-surface:   #24190d;
+  --color-surface2:  #2e200f;
+  --color-accent:    #c8873a;
+  --color-accent2:   #e8a85f;
+  --color-text:      #f0e6d3;
+  --color-muted:     #9e8b74;
+  --color-border:    #3d2e1a;
+
+  --font-sans: 'Segoe UI', system-ui, sans-serif;
+  --radius:    0.75rem;
+  --shadow:    0 4px 24px rgba(0,0,0,0.45);
+  --transition: 0.25s ease;
+}
+
+/* ------ Reset ------ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.7;
+}
+a { color: var(--color-accent); text-decoration: none; transition: color var(--transition); }
+a:hover { color: var(--color-accent2); }
+img { max-width: 100%; display: block; }
+
+/* ------ Layout ------ */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin-inline: auto;
+}
+.section { padding: 5rem 0; }
+
+/* ------ Header ------ */
+.site-header {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.5);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.02em;
+}
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+.main-nav a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text);
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color var(--transition), color var(--transition);
+}
+.main-nav a:hover {
+  color: var(--color-accent2);
+  border-color: var(--color-accent2);
+}
+
+/* ------ Hero ------ */
+.hero {
+  background: linear-gradient(135deg, #2e1a08 0%, #1a1208 60%, #0d0a06 100%);
+  padding: 7rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(200,135,58,0.18) 0%, transparent 70%);
+}
+.hero-content { position: relative; z-index: 1; }
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: var(--color-text);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+}
+.hero p {
+  font-size: 1.15rem;
+  color: var(--color-muted);
+  max-width: 550px;
+  margin: 0 auto 2rem;
+}
+
+/* ------ Buttons ------ */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent2));
+  color: #1a1208;
+  box-shadow: 0 4px 20px rgba(200,135,58,0.35);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(200,135,58,0.55);
+  color: #1a1208;
+}
+
+/* ------ Section headings ------ */
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: 1.25rem;
+}
+
+/* ------ About ------ */
+.about { background: var(--color-surface); }
+.about p { max-width: 700px; color: var(--color-muted); font-size: 1.05rem; }
+
+/* ------ Featured / Cards ------ */
+.featured { background: var(--color-bg); }
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.card {
+  background: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+.card-icon { font-size: 2.5rem; display: block; margin-bottom: 0.75rem; }
+.card h3 { font-size: 1.15rem; color: var(--color-accent2); margin-bottom: 0.5rem; }
+.card p  { font-size: 0.9rem; color: var(--color-muted); }
+
+/* ------ Forms (login / contact) ------ */
+.form-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 4rem 0;
+  background: var(--color-bg);
+}
+.form-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 2.5rem 2rem;
+  max-width: 460px;
+  width: 100%;
+  margin: 0 auto;
+  box-shadow: var(--shadow);
+}
+.form-card h1 { font-size: 1.8rem; color: var(--color-accent); margin-bottom: 0.25rem; }
+.form-card .subtitle { color: var(--color-muted); margin-bottom: 2rem; font-size: 0.95rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.25rem; }
+.form-group label { font-size: 0.9rem; color: var(--color-muted); font-weight: 500; }
+.form-group input,
+.form-group textarea,
+.form-group select {
+  background: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: 0.7rem 1rem;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(200,135,58,0.2);
+}
+.form-group textarea { resize: vertical; min-height: 120px; }
+
+/* ------ Menu Page ------ */
+.menu-section { padding: 5rem 0; }
+.menu-section h1 { font-size: 2.5rem; color: var(--color-accent); margin-bottom: 0.5rem; }
+.menu-section .subtitle { color: var(--color-muted); margin-bottom: 3rem; }
+.menu-category { margin-bottom: 3rem; }
+.menu-category h2 { font-size: 1.4rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+.menu-items { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; }
+.menu-item {
+  background: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  transition: border-color var(--transition);
+}
+.menu-item:hover { border-color: var(--color-accent); }
+.menu-item-info h4 { font-size: 1rem; color: var(--color-text); }
+.menu-item-info p  { font-size: 0.85rem; color: var(--color-muted); margin-top: 0.25rem; }
+.menu-item-price { font-size: 1.1rem; font-weight: 700; color: var(--color-accent2); white-space: nowrap; }
+
+/* ------ Footer ------ */
+.site-footer {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: 2rem 0;
+  text-align: center;
+}
+.footer-inner { display: flex; flex-direction: column; gap: 0.5rem; }
+.footer-inner p { color: var(--color-muted); font-size: 0.9rem; }
+
+/* ------ Responsive ------ */
+@media (max-width: 640px) {
+  .header-inner { flex-direction: column; gap: 0.75rem; }
+  .main-nav ul  { gap: 1rem; }
+}
